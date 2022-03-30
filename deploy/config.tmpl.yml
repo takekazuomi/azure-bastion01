@@ -1,0 +1,28 @@
+passwd:
+  users:
+    - name: $VM_USER_NAME
+      ssh_authorized_keys:
+        - $VM_SSH_AUTHORIZED_KEYS
+      groups: [ sudo, docker ]
+storage:
+  files:
+    - path: /opt/bin/docker-compose
+      filesystem: root
+      mode: 0755
+      contents:
+        remote:
+          url: https://github.com/docker/compose/releases/download/v2.3.3/docker-compose-linux-x86_64
+          verification:
+            hash:
+              function: sha512
+              sum: be657ed1b70eb9ec69a5840a0994192851a5e5e9f96b5780f2f55c291e899bab208769a1065c86cdcaf89e44d7cabadae680fa6600e8525394b3fb5e010fa9d5
+systemd:
+  units:
+    - name: docker.service
+      enabled: true
+
+# https://kinvolk.io/docs/flatcar-container-linux/latest/setup/releases/update-strategies/#auto-updates-with-a-maintenance-window
+locksmith:
+  reboot_strategy: reboot
+  window_start: Sun 04:00
+  window_length: 1h

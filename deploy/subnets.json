@@ -1,0 +1,18 @@
+[
+  {
+    "name": "subnet",
+    "properties": {
+      "addressPrefix": "10.1.0.0/24",
+      "privateEndpointNetworkPolicies": "Enabled",
+      "privateLinkServiceNetworkPolicies": "Enabled"
+    }
+  },
+  {
+    "name": "AzureBastionSubnet",
+    "properties": {
+      "addressPrefix": "10.1.255.0/24",
+      "privateEndpointNetworkPolicies": "Enabled",
+      "privateLinkServiceNetworkPolicies": "Enabled"
+    }
+  }
+]

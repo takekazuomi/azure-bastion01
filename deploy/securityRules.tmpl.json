@@ -1,0 +1,15 @@
+[
+  {
+    "name": "SSH",
+    "properties": {
+      "priority": 1000,
+      "protocol": "Tcp",
+      "access": "Allow",
+      "direction": "Inbound",
+      "sourceAddressPrefix": "$MY_IP_ADDRESS",
+      "sourcePortRange": "*",
+      "destinationAddressPrefix": "*",
+      "destinationPortRange": "22"
+    }
+  }
+]
