@@ -11,8 +11,8 @@ module vnet 'br/public:network/virtual-network:1.0.1' = {
   name: '${uniqueString(deployment().name, location)}-vnet'
   params: {
     name: virtualNetworkName
-    location:location
-    addressPrefixes:[
+    location: location
+    addressPrefixes: [
       addressPrefix
     ]
     subnets: subnets
