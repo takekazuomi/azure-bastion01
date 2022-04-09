@@ -86,7 +86,7 @@ resource nic 'Microsoft.Network/networkInterfaces@2021-05-01' = {
 
 resource nicDiagnosticsettings 'Microsoft.Insights/diagnosticSettings@2021-05-01-preview' = {
   scope: nic
-  name: 'diagnosticSettings'
+  name: '${nic.name}-diagnosticSettings'
   properties: {
     workspaceId: la.id
     metrics: [
@@ -122,7 +122,7 @@ resource pip 'Microsoft.Network/publicIPAddresses@2021-05-01' = {
 
 resource pipDiagnosticsettings 'Microsoft.Insights/diagnosticSettings@2021-05-01-preview' = {
   scope: pip
-  name: 'vmDiagnosticSettings'
+  name: '${pip.name}-diagnosticSettings'
   properties: {
     workspaceId: la.id
     metrics: [
