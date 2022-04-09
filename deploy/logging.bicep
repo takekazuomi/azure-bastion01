@@ -37,12 +37,11 @@ resource sln 'Microsoft.OperationsManagement/solutions@2015-11-01-preview' = {
 
 resource diagnosticsettings 'Microsoft.Insights/diagnosticSettings@2021-05-01-preview' = {
   scope: la
-  name: 'diagnosticSettings'
+  name: '${la.name}-diagnosticSettings'
   properties: {
     workspaceId: la.id
     metrics: [
       {
-        timeGrain: 'PT1M'
         category: 'AllMetrics'
         enabled: true
         retentionPolicy: {
@@ -60,7 +59,7 @@ resource diagnosticsettings 'Microsoft.Insights/diagnosticSettings@2021-05-01-pr
           enabled: true
         }
       }
-      {
+/*      {
         categoryGroup: 'audit'
         enabled: true
         retentionPolicy: {
@@ -68,7 +67,8 @@ resource diagnosticsettings 'Microsoft.Insights/diagnosticSettings@2021-05-01-pr
           enabled: true
         }
       }
-    ]
+*/
+]
   }
 }
 

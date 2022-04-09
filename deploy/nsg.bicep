@@ -18,7 +18,7 @@ resource la 'Microsoft.OperationalInsights/workspaces@2021-12-01-preview' existi
 
 resource diagnosticsettings 'Microsoft.Insights/diagnosticSettings@2021-05-01-preview' = {
   scope: nsg
-  name: 'diagnosticSettings'
+  name: '${nsg.name}-diagnosticSettings'
   properties: {
     workspaceId: la.id
     logs:[
